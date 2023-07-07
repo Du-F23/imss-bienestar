@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -53,6 +54,8 @@ public class DiagnosisTest {
         Optional<Disease> optionalDisease = diseaseRepository.findById(2L);
         Disease disease = optionalDisease.get();
         diagnosis.setDisease(disease);
+        List<Medicine> medicineList = medicineRepository.findAll();
+        diagnosis.setMedicines(medicineList);
 //        log.info("Valor anterior: " + diagnosis.toString());
         diagnosis.setComments("Tomar una pastilla cada 4 Horas");
 //        log.info("Valor actual: " + diagnosis.toString());

@@ -46,21 +46,22 @@ public class AppointmentTest {
     @Test
     @DisplayName("Actualizar Appoitment")
     void updateAppointment(){
-        Long appointmentId=1L;
-        Optional<Patient> optionalPatient = patientRepository.findById(1L);
-        Patient patient = optionalPatient.get();
-        Optional<Doctor> optionalDoctor = doctorRepository.findById(2L);
-        Doctor doctor = optionalDoctor.get();
-        Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(1L);
-        Diagnosis diagnosis = optionalDiagnosis.get();
+        Long appointmentId=5L;
         Optional<Appointment> optionalAppointment = appointmentRepository.findById(appointmentId);
         Assertions.assertTrue(optionalAppointment.isPresent());
         Appointment appointment = optionalAppointment.get();
-        appointment.setPatient(patient);
+        Optional<Doctor> optionalDoctor = doctorRepository.findById(2L);
+        Doctor doctor = optionalDoctor.get();
+        Optional<Patient> optionalPatient = patientRepository.findById(1L);
+        Patient patient = optionalPatient.get();
+        Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(3L);
+        Diagnosis diagnosis = optionalDiagnosis.get();
+        appointment.setAppointmentStatus(AppointmentStatus.CANCEL);
         appointment.setDoctor(doctor);
+        appointment.setPatient(patient);
         appointment.setDiagnosis(diagnosis);
         appointmentRepository.save(appointment);
-        log.info("Appoiment Actualizado para Patient: " + appointment.getPatient() );
+//        log.info("Appoiment Actualizado: " + appointment.toString() );
     }
 
     @Test

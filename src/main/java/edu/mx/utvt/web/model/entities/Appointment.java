@@ -30,7 +30,6 @@ public class Appointment {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date start;
 
-
 	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT NOW()")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date end;

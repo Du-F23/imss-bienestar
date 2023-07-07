@@ -50,9 +50,12 @@ public class DiagnosisTest {
         Long dignosisId= 3L;
         Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(dignosisId);
         Diagnosis diagnosis = optionalDiagnosis.get();
-        log.info("Valor anterior: " + diagnosis.toString());
+        Optional<Disease> optionalDisease = diseaseRepository.findById(2L);
+        Disease disease = optionalDisease.get();
+        diagnosis.setDisease(disease);
+//        log.info("Valor anterior: " + diagnosis.toString());
         diagnosis.setComments("Tomar una pastilla cada 4 Horas");
-        log.info("Valor actual: " + diagnosis.toString());
+//        log.info("Valor actual: " + diagnosis.toString());
         diagnosisRepository.save(diagnosis);
     }
 

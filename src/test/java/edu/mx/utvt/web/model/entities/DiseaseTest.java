@@ -34,10 +34,10 @@ public class DiseaseTest {
     @Test
     @DisplayName("Actualizar Disease")
     void updateDisease(){
-        Long diseaseId = 3L;
+        Long diseaseId = 2L;
         Optional<Disease> optionalDisease = diseaseRepository.findById(diseaseId);
         Disease disease = optionalDisease.get();
-        disease.setDescription("Hola");
+        disease.setDescription("Holas");
         diseaseRepository.save(disease);
         log.info("Disease Actualizado");
     }

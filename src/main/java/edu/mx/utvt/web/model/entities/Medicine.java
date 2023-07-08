@@ -35,7 +35,7 @@ public class Medicine {
 	@Enumerated(EnumType.ORDINAL)
 	private RouteMedication routeMedication;
 	
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "medicines")
+	@ManyToMany(mappedBy = "medicines")
 	private List<Diagnosis> diagnoses;
 
 }

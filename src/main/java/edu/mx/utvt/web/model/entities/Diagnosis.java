@@ -24,10 +24,10 @@ public class Diagnosis {
 	private Long id;
 
 	
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "diagnosis")
+	@OneToOne(mappedBy = "diagnosis")
 	private Appointment appointment;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "disease_id")
 	private Disease disease;
 	
@@ -35,7 +35,7 @@ public class Diagnosis {
 	@Length(min = 5, max = 2000)
 	private String comments;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "tr_diagnosis_medicines", joinColumns = @JoinColumn(name = "diagnosis_id"), inverseJoinColumns = @JoinColumn(name = "medicine_id"))
 	private List<Medicine> medicines;
 

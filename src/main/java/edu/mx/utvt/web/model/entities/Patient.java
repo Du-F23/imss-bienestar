@@ -72,10 +72,10 @@ public class Patient {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastModifiedDate;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "tr_doctors_patients", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
 	private List<Doctor> doctors;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "patient")
+	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointments;
 }

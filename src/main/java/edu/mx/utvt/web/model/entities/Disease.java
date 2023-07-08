@@ -38,6 +38,6 @@ public class Disease {
 	@Length(min = 5, max = 1000)
 	private String description;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "disease")
+	@OneToMany(mappedBy = "disease")
 	private List<Diagnosis> diagnoses;
 }

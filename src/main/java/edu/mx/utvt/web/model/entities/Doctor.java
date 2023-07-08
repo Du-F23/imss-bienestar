@@ -62,14 +62,14 @@ public class Doctor {
 	private Date lastModifiedDate;
 	
 		
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "doctors")
+	@ManyToMany(mappedBy = "doctors")
 	private List<Patient> patients; 
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "speciality_id")
 	private Specialty speciality;
 		
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "doctor")
+	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointments;
 }

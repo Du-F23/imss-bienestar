@@ -41,15 +41,15 @@ public class Appointment {
 	@Length(min = 5, max = 200)
 	private String reason;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "patient_id")
 	private Patient patient;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "doctor_id")
 	private Doctor doctor;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name = "diagnosis_id")
 	private Diagnosis diagnosis;
 

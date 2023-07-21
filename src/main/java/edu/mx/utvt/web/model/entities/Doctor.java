@@ -52,12 +52,12 @@ public class Doctor {
 	private String cedula; 
 			
 	@CreatedDate
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = " DATETIME DEFAULT NOW()")
+	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date createdDate;
 	
 	@LastModifiedDate
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = " DATETIME DEFAULT NOW()")
+	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = " DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastModifiedDate;
 	

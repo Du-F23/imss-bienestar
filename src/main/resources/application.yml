@@ -1,12 +1,17 @@
-
 spring:
   application:
     name: patients-api
+  security:
+    user:
+      name: admin
+      password: admin
+
   datasource:
-    url: jdbc:mysql://localhost:3306/imss-bienestar
-    username: root
-    password: Fernando13.1
- 
+#    url: jdbc:mysql://localhost:3306/imss-bienestar
+     url: jdbc:sqlserver://imss-bienestar-server.database.windows.net:1433;database=imss;user=imss-bienestar@imss-bienestar-server;password=Amborcat18;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  #    username: root
+#    password: Fernando13.1
+
   jpa:
     show-sql: true
     generate-ddl: true

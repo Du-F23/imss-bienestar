@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,7 @@ public class PatientTest {
         log.info("Inciando test para crear pasientes");
         Patient patient = null;
 
-        patient = this.patientRepository.save(Patient.builder().firstName("Victor").lastName("Manuel").birthDate(new Date()).bloodType("AO+").email("victor@gmail.com").userStatus(UserStatus.OPEN).rfc("GMADAFW45").createdDate(new Date()).lastModifiedDate(new Date()).build());
+        patient = this.patientRepository.save(Patient.builder().firstName("Fernando").lastName("Duarte").birthDate(new Date()).bloodType("AO+").email("ferduarte@gmail.com").userStatus(UserStatus.OPEN).rfc("DUVF021021HM").createdDate(new Date()).lastModifiedDate(new Date()).build());
 
         Assertions.assertNotNull(patient);
 
@@ -54,6 +55,7 @@ public class PatientTest {
 
     @Test
     @DisplayName("Actualizar Pacientes")
+    @WithMockUser("admin")
     void testUpdateUser(){
         log.info("Actualizar Pacientes");
         Long patientId = 1L;
@@ -73,7 +75,7 @@ public class PatientTest {
     @DisplayName("Eliminar Pacientes")
     void testDeletePatients(){
         log.info("Eliminar Pacientes");
-        Long patientId=2L;
+        Long patientId=1L;
 
         Optional<Patient> optionalPatient = patientRepository.findById(patientId);
 

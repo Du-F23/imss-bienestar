@@ -34,7 +34,7 @@ public class DiseaseTest {
     @Test
     @DisplayName("Actualizar Disease")
     void updateDisease(){
-        Long diseaseId = 2L;
+        Long diseaseId = 1L;
         Optional<Disease> optionalDisease = diseaseRepository.findById(diseaseId);
         Disease disease = optionalDisease.get();
         disease.setDescription("Holas");

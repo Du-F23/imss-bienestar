@@ -57,7 +57,7 @@ class DoctorTest {
         specialty = specialtyRepository.findById(1L).get();
 
         doctor = this.doctorRepository.save(
-                Doctor.builder().firstName("Fernando").lastName("Duarte").rfc("DUVF021021HM").cedula("20000000").speciality(specialty).build());
+                Doctor.builder().firstName("Dali").lastName("Arriaga").rfc("DAFLO432345").cedula("20064500").speciality(specialty).build());
 
         log.info("Detalle de medico: ", doctor.toString());
     }

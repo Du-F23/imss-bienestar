@@ -26,13 +26,13 @@ public class Appointment {
 	private Long id;
 
 	@CreatedDate
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT NOW()")
+	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date start;
+	private Date startDate;
 
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT NOW()")
+	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date end;
+	private Date endDate;
 
 	@Enumerated(EnumType.ORDINAL)
 	private AppointmentStatus appointmentStatus;

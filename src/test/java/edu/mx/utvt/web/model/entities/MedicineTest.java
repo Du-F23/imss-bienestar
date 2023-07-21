@@ -47,7 +47,7 @@ public class MedicineTest {
     @Test
     @DisplayName("Actualizar Medicamentos")
     void updateMedicineTest(){
-        Long medicineId = 2L;
+        Long medicineId = 1L;
         Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
         Assertions.assertTrue(optionalMedicine.isPresent());
         log.info("Medicina encontrada a Actualizar: " + medicineRepository.findById(medicineId));

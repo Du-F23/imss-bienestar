@@ -36,7 +36,7 @@ public class AppointmentTest {
     @DisplayName("Crear Appointment")
     void createAppointment() {
         Appointment appointment = null;
-        appointment = Appointment.builder().end(new Date(6)).appointmentStatus(AppointmentStatus.NO_ATTENDANCE).reason("Unabiled").build();
+        appointment = Appointment.builder().endDate(new Date(6)).appointmentStatus(AppointmentStatus.NO_ATTENDANCE).reason("Unabiled").build();
         log.info(appointment.toString());
         appointmentRepository.save(appointment);
         Assertions.assertNotNull(appointment);
@@ -50,11 +50,11 @@ public class AppointmentTest {
         Optional<Appointment> optionalAppointment = appointmentRepository.findById(appointmentId);
         Assertions.assertTrue(optionalAppointment.isPresent());
         Appointment appointment = optionalAppointment.get();
-        Optional<Doctor> optionalDoctor = doctorRepository.findById(2L);
+        Optional<Doctor> optionalDoctor = doctorRepository.findById(1L);
         Doctor doctor = optionalDoctor.get();
         Optional<Patient> optionalPatient = patientRepository.findById(1L);
         Patient patient = optionalPatient.get();
-        Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(3L);
+        Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(1L);
         Diagnosis diagnosis = optionalDiagnosis.get();
         appointment.setAppointmentStatus(AppointmentStatus.CANCEL);
         appointment.setDoctor(doctor);

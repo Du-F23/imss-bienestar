@@ -62,16 +62,26 @@ public class Patient {
 	@Column(length = 13, unique = true)
 	private String rfc;
 	
+//	@CreatedDate
+//	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT GETDATE()")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	public Date createdDate;
+//
+//	@LastModifiedDate
+//	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = "DATETIME DEFAULT GETDATE()")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	private Date lastModifiedDate;
+
 	@CreatedDate
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = " DATETIME DEFAULT NOW()")
+	@Column(name = "created_date", nullable = false, updatable = false, columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date createdDate;
-	
+	private Date createdDate;
+
 	@LastModifiedDate
-	@Column(nullable = false, insertable = false, updatable = false, columnDefinition = " DATETIME DEFAULT NOW()")
+	@Column(name = "last_modified_date", nullable = false, columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastModifiedDate;
-	
+
 	@ManyToMany
 	@JoinTable(name = "tr_doctors_patients", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
 	private List<Doctor> doctors;

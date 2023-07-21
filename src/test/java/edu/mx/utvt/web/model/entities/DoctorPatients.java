@@ -26,7 +26,7 @@ public class DoctorPatients {
     @Test
     @DisplayName("Añadir ManyToMany de doctors a patients")
     void addDoctorsPatients(){
-        Optional<Doctor> optionalDoctor = doctorRepository.findById(2L);
+        Optional<Doctor> optionalDoctor = doctorRepository.findById(1L);
         Optional<Patient> optionalPatient = patientRepository.findById(1L);
         Patient patient = optionalPatient.get();
         Doctor doctor = optionalDoctor.get();

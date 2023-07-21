@@ -48,10 +48,10 @@ public class DiagnosisTest {
     @Test
     @DisplayName("Actualizar Diagnostico")
     void updateDiagnosis(){
-        Long dignosisId= 3L;
+        Long dignosisId= 1L;
         Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(dignosisId);
         Diagnosis diagnosis = optionalDiagnosis.get();
-        Optional<Disease> optionalDisease = diseaseRepository.findById(2L);
+        Optional<Disease> optionalDisease = diseaseRepository.findById(1L);
         Disease disease = optionalDisease.get();
         diagnosis.setDisease(disease);
         List<Medicine> medicineList = medicineRepository.findAll();
@@ -65,7 +65,7 @@ public class DiagnosisTest {
     @Test
     @DisplayName("Borrar Diagnostico")
     void deleteDiagnosis(){
-        Long diagnosisId = 2L;
+        Long diagnosisId = 1L;
         Optional<Diagnosis> optionalDiagnosis = diagnosisRepository.findById(diagnosisId);
         Diagnosis diagnosis = optionalDiagnosis.get();
         log.info("Eliminaras el diagnostico: " + diagnosis.getId());
